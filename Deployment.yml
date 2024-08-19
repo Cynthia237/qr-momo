@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qr-momoapp
+spec:
+  selector:
+    matchLabels:
+      app: qr-momoapp
+  template:
+    metadata:
+      labels:
+        app: qr-momoapp
+    spec:
+      containers:
+      - name: qr-momoapp
+        image: my_qr_momoapp
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
